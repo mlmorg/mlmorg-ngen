@@ -1,0 +1,49 @@
+{
+  "name": "mlmorg-ngen",
+  "version": "0.0.0",
+  "description": "My personal project scaffolder",
+  "keywords": [],
+  "author": "Matt Morgan <matt@mlmorg.com>",
+  "repository": "git://github.com/mlmorg/mlmorg-ngen.git",
+  "main": "index.js",
+  "bin": {
+    "ngen": "index.js"
+  },
+  "homepage": "https://github.com/mlmorg/mlmorg-ngen",
+  "bugs": {
+    "url": "https://github.com/mlmorg/mlmorg-ngen/issues",
+    "email": "matt@mlmorg.com"
+  },
+  "contributors": [
+    {
+      "name": "Matt Morgan"
+    }
+  ],
+  "dependencies": {
+    "camelize": "^1.0.0",
+    "minimist": "^1.1.2",
+    "process": "^0.11.1",
+    "uber-ngen": "^5.2.0"
+  },
+  "devDependencies": {
+    "uber-standard": "^4.0.1"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://github.com/mlmorg/mlmorg-ngen/raw/master/LICENSE"
+    }
+  ],
+  "scripts": {
+    "lint": "uber-standard",
+    "test": "npm run lint"
+  },
+  "engines": {
+    "node": ">= 0.10.x"
+  },
+  "standard": {
+    "ignore": [
+      "templates/**/content/**"
+    ]
+  }
+}

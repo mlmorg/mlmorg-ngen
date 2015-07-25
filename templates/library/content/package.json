@@ -1,0 +1,61 @@
+{
+  "name": "{{project}}",
+  "version": "0.0.0",
+  "description": "{{description}}",
+  "keywords": [],
+  "author": "{{gitName}} <{{gitEmail}}>",
+  "repository": "git://github.com/{{username}}/{{project}}.git",
+  "main": "index.js",
+  "homepage": "https://github.com/{{username}}/{{project}}",
+  "bugs": {
+    "url": "https://github.com/{{username}}/{{project}}/issues",
+    "email": "{{gitEmail}}"
+  },
+  "contributors": [
+    {
+      "name": "{{gitName}}"
+    }
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "coveralls": "^2.10.0",
+    "istanbul": "^0.3.5",
+    "itape": "^1.5.0",
+    "opn": "^1.0.1",
+    "tape": "^3.4.0",
+    "uber-standard": "^4.0.0"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://github.com/{{username}}/{{project}}/raw/master/LICENSE"
+    }
+  ],
+  "scripts": {
+    "check-cover": "istanbul check-coverage --branches=100 --lines=100 --functions=100",
+    "check-ls": "npm ls 1>/dev/null",
+    "cover": "npm run test-cover -s && npm run check-cover -s",
+    "lint": "uber-standard",
+    "test": "npm run check-ls -s && npm run lint -s && npm run cover -s",
+    "test-cover": "istanbul cover --report html --print detail -- test/index.js",
+    "trace": "itape test/index.js --trace",
+    "travis": "npm run cover -s && istanbul report lcov && ((cat coverage/lcov.info | coveralls) || exit 0)",
+    "view-cover": "opn ./coverage/index.html"
+  },
+  "engines": {
+    "node": ">= 0.10.x"
+  },
+  "pre-commit.silent": true,
+  "itape": {
+    "trace": {
+      "debuglog": [
+        "{{projectNoDash}}"
+      ],
+      "leakedHandles": {
+        "timeout": 5001,
+        "debugSockets": true
+      },
+      "formatStack": true
+    }
+  }
+}
